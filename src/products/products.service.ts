@@ -34,6 +34,7 @@ export class ProductsService {
     try {
       const { images = [], ...productDetails } = createProductDto;
 
+      console.log(images);
       const product = this.productRepository.create({
         ...productDetails,
         images: images.map((image) =>
