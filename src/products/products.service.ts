@@ -61,7 +61,7 @@ export class ProductsService {
         images: true,
       },
       order: {
-        id: 'ASC',
+        created_at: 'DESC',
       },
       where: gender ? [{ gender }, { gender: 'unisex' }] : {},
     });

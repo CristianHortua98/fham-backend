@@ -105,6 +105,12 @@ export class Product {
     )
     user: User
 
+    @Column({
+        type: 'timestamp',
+        default: () => 'CURRENT_TIMESTAMP'
+    })
+    created_at: Date;
+
 
     @BeforeInsert()
     checkSlugInsert() {
