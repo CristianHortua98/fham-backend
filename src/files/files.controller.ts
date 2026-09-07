@@ -88,7 +88,6 @@ export class FilesController {
   @UseInterceptors(
     FileInterceptor('file'),
   )
-  @Auth()
   async uploadProductImage(@UploadedFile() file: Express.Multer.File) {
 
     if (!file) {
