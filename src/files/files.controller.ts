@@ -21,6 +21,7 @@ import { fileFilter, fileNamer } from './helpers';
 import { v2 as cloudinary } from 'cloudinary';
 import { Readable } from 'stream';
 import { v4 as uuid } from 'uuid'
+import { Auth } from 'src/auth/decorators';
 
 @ApiTags('Files - Get and Upload')
 @Controller('files')
@@ -87,6 +88,7 @@ export class FilesController {
   @UseInterceptors(
     FileInterceptor('file'),
   )
+  @Auth()
   async uploadProductImage(@UploadedFile() file: Express.Multer.File) {
 
     if (!file) {
