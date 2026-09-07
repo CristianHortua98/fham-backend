@@ -34,7 +34,6 @@ export class ProductsService {
     try {
       const { images = [], ...productDetails } = createProductDto;
 
-      console.log(images);
       const product = this.productRepository.create({
         ...productDetails,
         images: images.map((image) =>
@@ -69,6 +68,10 @@ export class ProductsService {
     const totalProducts = await this.productRepository.count({
       where: gender ? [{ gender }, { gender: 'unisex' }] : {},
     });
+
+    products.map((product) => {
+      delete product.user;
+    })
 
     return {
       count: totalProducts,
