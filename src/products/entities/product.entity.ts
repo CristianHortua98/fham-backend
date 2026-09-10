@@ -111,6 +111,11 @@ export class Product {
     })
     created_at: Date;
 
+    @Column({
+        type: 'boolean',
+        default: false
+    })
+    is_new: boolean;
 
     @BeforeInsert()
     checkSlugInsert() {
